@@ -7,6 +7,11 @@ const sequence = require('gulp-sequence')
 
 const tsProject = ts.createProject('tsconfig.json')
 
+const PATH = {
+  input: 'src',
+  output: 'dist'
+}
+
 /**
  * 将 typescript 编译为 js
  */
@@ -15,7 +20,7 @@ gulp.task('js', function () {
         .pipe(sourcemaps.init())
         .pipe(tsProject())
         .pipe(sourcemaps.write('/'))
-        .pipe(gulp.dest('devDist'));
+        .pipe(gulp.dest(PATH.output));
 });
 
 /**
@@ -37,17 +42,27 @@ gulp.task('tslint', function () {
 /**
  * 监听文件变动，重新 tslint 和 编译 ts 文件，重启服务器
  */
-gulp.task('watch', ['tslint', 'js'] function () {
+gulp.task('watch', ['tslint', 'js'], function () {
     return nodemon({
-        script: 'devDist/index.js',  // 服务的启动文件
+        script: PATH.output + '/index.js',  // 服务的启动文件
         watch: 'src',    // 源代码目录
         tasks: ['nodemon-tasks'], // 在重启服务前需要执行的任务
         ext: 'ts', // 监听.ts结尾的文件 必须
         env: { // 设置环境
-            'NODE_ENV': 'development'
-        }
+            'NODE_ENV': 'development',
+        },
+        verbose: true
     });
 });
+
+/**
+ * copy https keys
+ */
+
+gulp.task('copy', function () {
+    return gulp.src('src/keys/*')
+               .pipe(gulp.dest(PATH.output + '/keys'))
+})
 
 /**
  * nodemon 重启服务之前需要执行的 gulp 任务

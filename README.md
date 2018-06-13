@@ -1,4 +1,4 @@
-# node-koa-mongodb 搭建node服务端
+# 通天塔bbs服务端
 
 ## 技术栈
 
@@ -22,3 +22,8 @@
 
      优点: 通过 ts-node 直接使用 ts 源文件启动服务
      缺点: 需要单独窗口 tslint, 不能及时发现 tslint 报错，及时 tslint 报错，只要代码正确依然正常启动服务，不易发现 tslint 报错问题
+
+
+## 命令行参数
+
+  开发模式下，直接在 `config/dev.ts` 中修改修改默认配置就行

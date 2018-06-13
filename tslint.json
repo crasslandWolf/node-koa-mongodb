@@ -10,7 +10,7 @@
     "quotemark": false,
     "semicolon": [
       true,
-      "never"
+      "always"
     ],
     "no-var-requires": false,
     "prefer-const": true,

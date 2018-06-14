@@ -1,13 +1,6 @@
 # 数据库设计文档
 
-## 应用管理集合 syestems 该bbs可能不止通天塔使用，每个应用需要使用再这里添加
-    字段:
-        1. id             唯一标识
-        2. name           使用的应用名称
-        3. createErpNO    分配人
-        4. createTime     分配时间
-
-## 用户集合 user - 主要记录分配的管理员(超级管理员??)
+## 用户集合 users - 主要记录分配的管理员(超级管理员??)
 
     字段:
         1. id             唯一标识
@@ -15,19 +8,19 @@
         3. role           角色判断(1: 管理员 需要其他角色重新约定)
         4. createTime     分配时间
         5. createErpNO    分配人
-        6. systemId       属于哪个应用
 
 ## 问题集合  questions
 
     字段:
-        1. id             唯一标志
-        2. title          问题摘要(可为空)
-        3. description    问题描述
-        4. createTime     创建时间
-        5. updateTime     最后更新时间
-        6. createErpNO    问题创建人
-        7. top            置顶标志
-        8. seeNum         访问量(可作为判断热度的依据)
+        1.  id             唯一标志
+        2.  title          问题描述
+        3.  createTime     创建时间
+        4.  updateTime     最后更新时间
+        5.  createErpNO    问题创建人
+        6.  isTop          置顶标志(默认false)
+        7.  views          访问量(可作为判断热度的依据)
+        8.  likes          点赞数
+        9.  isLike         自己是否点赞(默认false)
 
 ## 评论集合   answers
 

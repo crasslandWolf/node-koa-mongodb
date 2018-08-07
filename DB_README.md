@@ -1,48 +1,5 @@
 # 数据库设计文档
 
-## 用户集合 users - 主要记录分配的管理员(超级管理员??)
-
-    字段:
-        1. id             唯一标识
-        2. erpNO          用户erp
-        3. role           角色判断(1: 管理员 需要其他角色重新约定)
-        4. createTime     分配时间
-        5. createErpNO    分配人
-
-## 问题集合  questions
-
-    字段:
-        1.  id             唯一标志
-        2.  title          问题描述
-        3.  createTime     创建时间
-        4.  updateTime     最后更新时间
-        5.  createErpNO    问题创建人
-        6.  isTop          置顶标志(默认false)
-        7.  views          访问量(可作为判断热度的依据)
-        8.  likes          点赞数
-        9.  isLike         自己是否点赞(默认false)
-
-## 评论集合   answers
-
-    字段:
-        1. id             唯一标志
-        2. questionId     对应的问题的Id
-        3. createTime     创建时间
-        4. updateTime     更新时间
-        5. createErpNO    创建人erp
-        6. support        点赞数
-        7. approve        该评论是发文章所赞成的
-        8. content        评论的内容
-
-## 标签集合   tags
-
-    字段:
-        1. id             唯一标识
-        2. name           标签名称
-        3. createTime     创建时间
-        4. updateTime     更新时间
-        5. createErpNO    创建人erp
-
 ## mongodb 权限
 1、数据库用户角色：read、readWrite; 
 2、数据库管理角色：dbAdmin、dbOwner、userAdmin； 

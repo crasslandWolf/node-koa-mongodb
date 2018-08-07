@@ -2,7 +2,7 @@
  * @Author: jinzhengkun
  * @Date: 2018-06-13 16:57:05
  * @Last Modified by: jinzhengkun
- * @Last Modified time: 2018-06-13 19:01:28
+ * @Last Modified time: 2018-08-07 21:14:57
  */
 import * as mongoose from 'mongoose';
 import * as config from '../config';
@@ -12,7 +12,11 @@ import * as config from '../config';
 export const db = mongoose;
 
 export const connect = () => {
-    mongoose.connect(config.MONGODB.url, config.MONGODB.options);
+    if (process.env.NODE_ENV === 'development') {
+        mongoose.connect(config.MONGODB.url);
+    } else {
+        mongoose.connect(config.MONGODB.url, config.MONGODB.options);
+    }
 
     /**
      * 连接成功

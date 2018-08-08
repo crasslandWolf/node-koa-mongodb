@@ -2,7 +2,7 @@
  * @Author: jinzhengkun
  * @Date: 2018-08-07 21:15:40
  * @Last Modified by: jinzhengkun
- * @Last Modified time: 2018-08-07 21:16:10
+ * @Last Modified time: 2018-08-08 14:57:08
  * 请求拦截器
  */
 import { Context } from 'koa';

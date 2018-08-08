@@ -2,7 +2,7 @@
  * @Author: jinzhengkun
  * @Date: 2018-06-13 16:57:23
  * @Last Modified by: jinzhengkun
- * @Last Modified time: 2018-08-07 21:10:49
+ * @Last Modified time: 2018-08-08 15:18:37
  */
 const argv = require('yargs').argv;
 
@@ -23,7 +23,7 @@ export const MONGODB = {
 };
 
 export const APP = {
-    ROOT_PATH: '/babel/bbs/service',
+    ROOT_PATH: '/server',
     HTTP_PORT: defaultConfig.APP.HTTP_PORT,
     HTTPS_PORT: defaultConfig.APP.HTTPS_PORT
 };

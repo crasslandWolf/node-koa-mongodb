@@ -2,26 +2,38 @@
  * @Author: jinzhengkun
  * @Date: 2018-06-13 16:56:50
  * @Last Modified by: jinzhengkun
- * @Last Modified time: 2018-06-13 18:40:28
+ * @Last Modified time: 2018-08-08 15:28:55
  */
 import * as koa from 'koa';
+import * as koaBody from 'koa-body';
+import * as helmet from 'koa-helmet';
 import * as fs from 'fs';
 import * as http from 'http';
 import * as https from 'https';
 
 import * as config from './config';
-
 import * as mongoose from './mongodb';
+import router from './route';
+import interceptor from './middleWares/interceptor';
 
 const app = new koa();
 
 mongoose.connect();
 
-app.use(async (ctx, next) => {
-  ctx.body = 'hello world';
-  await next();
-});
+// app.use(async (ctx, next) => {
+//   ctx.body = 'hello world';
+//   await next();
+// });
 
+app.use(interceptor);
+app.use(helmet());
+app.use(koaBody({
+    multipart: true
+}));
+
+app
+    .use(router.routes())
+    .use(router.allowedMethods());
 const options = {
   key: fs.readFileSync(__dirname + '/keys/server-key.pem'),
   ca: [fs.readFileSync(__dirname + '/keys/ca-cert.pem')],

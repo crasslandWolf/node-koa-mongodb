@@ -27,3 +27,6 @@
 ## 命令行参数
 
   开发模式下，直接在 `config/dev.ts` 中修改修改默认配置就行
+
+## 登录认证 TODO...
+    cookie or token

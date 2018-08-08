@@ -2,7 +2,7 @@
  * @Author: jinzhengkun
  * @Date: 2018-06-14 18:03:33
  * @Last Modified by: jinzhengkun
- * @Last Modified time: 2018-08-07 21:17:33
+ * @Last Modified time: 2018-08-08 15:01:35
  */
 import { db } from '../mongodb';
 import { Document } from 'mongoose';
@@ -42,7 +42,7 @@ const testSchema = new db.Schema({
     author: {
         name: { type: String, required: true},
         email: { type: String, required: false, default: ''}
-    },
+    }
 });
 
 // 转化为 js 对象

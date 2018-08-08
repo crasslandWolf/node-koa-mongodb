@@ -11,5 +11,6 @@ router
     .get('/test/:id', controller.test.testDetail)
     .put('/edit/:id', controller.test.testEdit)
     .delete('/remove/:id', controller.test.testDelete)
-    .post('new', controller.test.newTest);
+    .post('/new', controller.test.newTest);
+
 export default router;
